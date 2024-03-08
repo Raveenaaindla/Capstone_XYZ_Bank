@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+  <test name="Default test(failed)">
+    <classes>
+      <class name="com.crm.qa.testcases.WithdrawalPageTest">
+        <methods>
+          <include name="setUp"/>
+          <include name="teardownBrowser"/>
+          <include name="Verify_Withdraw_With_InValideAmmount"/>
+          <include name="Verify_Withdraw_With_ValideAmmount"/>
+          <include name="tearDown"/>
+          <include name="Verify_Withdraw_With_InSufficient"/>
+        </methods>
+      </class> <!-- com.crm.qa.testcases.WithdrawalPageTest -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->
