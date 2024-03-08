@@ -11,6 +11,8 @@ import com.crm.qa.pages.OpenNewAccountPage;
 public class OpenAccountPageTest extends TestBase{
 	CustomerLoginPage loginPage;
 	OpenNewAccountPage openAccountPage;
+	
+	// Retrieve username for opening account from properties
 	String OpenAccount_username = prop.getProperty("OpenAccount_username");
 		
 	public OpenAccountPageTest()
@@ -20,13 +22,22 @@ public class OpenAccountPageTest extends TestBase{
 	
 	@BeforeMethod
 	public void setUp() {
+		
+		// Initialize test environment
 		initialization();
 		try {
+			
+			// Initialize login page object
 			loginPage = new CustomerLoginPage();
+			
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			
+			// Handle IO Exception
 			e.printStackTrace();
+			
 		}
+		
+		// Login as manager
 		openAccountPage = loginPage.ManagerLogin1();
 		
 		
@@ -35,7 +46,11 @@ public class OpenAccountPageTest extends TestBase{
 	
 	@Test(priority=1)
 	public void OpenAccount() throws InterruptedException{
+		
+		// Click on the button to open an account
 		openAccountPage.OpenAccount_button.click();
+		
+		// Add customer for opening account
 		openAccountPage.AddCustomer(OpenAccount_username);
 	}
 	
@@ -44,6 +59,7 @@ public class OpenAccountPageTest extends TestBase{
 	
 	@AfterMethod
 	public void tearDown(){
+		// Quit the WebDriver after test execution
 		driver.quit();
 	}
 	

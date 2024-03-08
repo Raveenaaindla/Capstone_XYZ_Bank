@@ -4,39 +4,16 @@
   <listeners>
     <listener class-name="com.crm.qa.ExtentReportListener.ExtentReporterNG"/>
   </listeners>
-  <test name="Launching Website In Chrome(failed)">
-    <parameter name="browser" value="Chrome"/>
+  <test name="Test(failed)">
     <classes>
-      <class name="com.crm.qa.testcases.OpenAccountPageTest">
-        <methods>
-          <include name="setUp"/>
-          <include name="teardownBrowser"/>
-          <include name="tearDown"/>
-          <include name="OpenAccount"/>
-        </methods>
-      </class> <!-- com.crm.qa.testcases.OpenAccountPageTest -->
-      <class name="com.crm.qa.testcases.WithdrawalTest">
+      <class name="com.crm.qa.testcases.CustomersPageTest">
         <methods>
           <include name="teardownBrowser"/>
+          <include name="DeleteCustomerEntry"/>
           <include name="setUp"/>
           <include name="tearDown"/>
-          <include name="Verify_Withdraw_With_InSufficient"/>
         </methods>
-      </class> <!-- com.crm.qa.testcases.WithdrawalTest -->
-      <class name="com.crm.qa.testcases.AddCustomerPageTest">
-        <methods>
-          <include name="setUp"/>
-          <include name="teardownBrowser"/>
-          <include name="AddCustomerExist"/>
-          <include name="AddCustomerNotExist"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.crm.qa.testcases.AddCustomerPageTest -->
-    </classes>
-  </test> <!-- Launching Website In Chrome(failed) -->
-  <test name="Launching Website In Edge(failed)">
-    <parameter name="browser" value="Edge"/>
-    <classes>
+      </class> <!-- com.crm.qa.testcases.CustomersPageTest -->
       <class name="com.crm.qa.testcases.CustomerTransactionPageTest">
         <methods>
           <include name="tearDown"/>
@@ -45,6 +22,15 @@
           <include name="Verify_Deposit_With_ValideAmmount"/>
         </methods>
       </class> <!-- com.crm.qa.testcases.CustomerTransactionPageTest -->
+      <class name="com.crm.qa.testcases.DepositTest">
+        <methods>
+          <include name="teardownBrowser"/>
+          <include name="tearDown"/>
+          <include name="VerifyDepositWithInvalidAmount"/>
+          <include name="VerifyDepositWithValidAmount"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- com.crm.qa.testcases.DepositTest -->
     </classes>
-  </test> <!-- Launching Website In Edge(failed) -->
+  </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

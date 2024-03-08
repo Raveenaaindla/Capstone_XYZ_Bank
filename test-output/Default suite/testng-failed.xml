@@ -3,16 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.crm.qa.testcases.WithdrawalPageTest">
+      <class name="com.crm.qa.testcases.AddCustomerPageTest">
         <methods>
           <include name="setUp"/>
           <include name="teardownBrowser"/>
-          <include name="Verify_Withdraw_With_InValideAmmount"/>
-          <include name="Verify_Withdraw_With_ValideAmmount"/>
+          <include name="AddCustomerExist"/>
+          <include name="AddCustomerNotExist"/>
           <include name="tearDown"/>
-          <include name="Verify_Withdraw_With_InSufficient"/>
         </methods>
-      </class> <!-- com.crm.qa.testcases.WithdrawalPageTest -->
+      </class> <!-- com.crm.qa.testcases.AddCustomerPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

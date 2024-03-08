@@ -23,12 +23,16 @@ public class DepositTest extends TestBase {
 
     @BeforeMethod
     public void setUp() {
+    	
+    	// Initialize test environment
         initialization();
         try {
+        	// Initialize login page object
             loginPage = new CustomerLoginPage();
         } catch (IOException e) {
             e.printStackTrace();
         }
+     // Login with existing account username
         accountPage = loginPage.CustomerLogin(AccountexistUser);
     }
 
@@ -46,6 +50,7 @@ public class DepositTest extends TestBase {
 
     @AfterMethod
     public void tearDown() {
+    	// Quit the WebDriver after test execution
         driver.quit();
     }
 }

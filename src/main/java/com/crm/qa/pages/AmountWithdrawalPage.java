@@ -59,21 +59,24 @@ public class AmountWithdrawalPage extends TestBase{
 	}
 	
 	//Actions:
+	
+	// Method to get the title of the login page.
 	public String validateLoginPageTitle(){
 		return driver.getTitle();
 	}
 	
-	
+	// Method to verify customer name.
 	public String verifyCustomerName(){
 		return Customer_Name.getText();
 	}
 	
+	// Method to get the balance amount.
 	public String GetBalance()
 	{
 		return Balance.getText();
 	}
 	
-	
+	// Method to get the count of account numbers.
 	public int acno()
 	{
 	 Select dropdown = new Select(AccountNumberList);
@@ -81,12 +84,14 @@ public class AmountWithdrawalPage extends TestBase{
 	  return itemCount; 
 	}
 	
+	// Method to select account by index.
 	public void SelectAccount(int index)
 	{
 		 Select dropdown = new Select(AccountNumberList);
 		 dropdown.selectByIndex(index);
 	}
 	
+	// Method to perform deposit action.
 	public AmountWithdrawalPage Deposit(int amount)
 	{
 		Deposit_button.click();
@@ -96,6 +101,7 @@ public class AmountWithdrawalPage extends TestBase{
 		return new AmountWithdrawalPage();
 	}
 	
+	// Method to perform withdrawal action.
 	public AmountWithdrawalPage Withdraw(int amount) throws InterruptedException
 	{
 		
@@ -110,14 +116,14 @@ public class AmountWithdrawalPage extends TestBase{
 		return new AmountWithdrawalPage();
 	}
 	
-	
+	// Method to get message.
 	public String message()
 	{
 		return Message.getText();
 	}
 	
-	//for Deposit
-	public int Deposit_CurrentBalance(int Amount_To_Deposit,int oldBalance)
+	// Method to calculate current balance after deposit.
+	public int DepositCurrentBalance(int Amount_To_Deposit,int oldBalance)
 	{
 		int currentBalance = 0;
 		if(Amount_To_Deposit < 0)
@@ -132,8 +138,8 @@ public class AmountWithdrawalPage extends TestBase{
 		
 	}
 	
-	//for withdraw
-	public int Withdraw_CurrentBalance(int Amount_To_Withdraw,int oldBalance)
+	// Method to calculate current balance after withdrawal.
+	public int WithdrawCurrentBalance(int Amount_To_Withdraw,int oldBalance)
 	{
 		int currentBalance = 0;
 		if(Amount_To_Withdraw < 0 || Amount_To_Withdraw > oldBalance)
@@ -148,6 +154,8 @@ public class AmountWithdrawalPage extends TestBase{
 		
 	}
 	
+
+    // Method to perform valid deposit.
 	public void ValidDeposit(String message,int Amount)
 	{
 		int count = acno();
@@ -157,13 +165,15 @@ public class AmountWithdrawalPage extends TestBase{
 			 int oldBal= Integer.valueOf(GetBalance());
 			 Deposit(Amount);
 			 int newBal = Integer.valueOf(GetBalance());
-			 int currentBal = Deposit_CurrentBalance(Amount,oldBal) ;
+			 int currentBal = DepositCurrentBalance(Amount,oldBal) ;
 			 Assert.assertEquals(currentBal, newBal);
 			 String msg = message();
 			 Assert.assertEquals(msg , message );
 			 
 		}
 	}
+	
+	// Method to perform invalid deposit.
 	public void InValidDeposit(int Amount)
 	{
 		int count = acno();
@@ -173,16 +183,16 @@ public class AmountWithdrawalPage extends TestBase{
 			 int oldBal= Integer.valueOf(GetBalance());
 			 Deposit(Amount);
 			 int newBal = Integer.valueOf(GetBalance());
-			 int currentBal = Deposit_CurrentBalance(Amount,oldBal) ;
+			 int currentBal = DepositCurrentBalance(Amount,oldBal) ;
 			 Assert.assertEquals(currentBal, newBal);
 			 
-			 //invalid case doesn't raise error msg
-			// String msg = message();
-			// Assert.assertEquals(msg , message );
+			
 			 
 		}
 	}
 	
+
+    // Method to perform valid withdrawal.
 	public void ValidWithdraw(String message,int Amount) throws InterruptedException
 	{
 		int count = acno();
@@ -194,7 +204,7 @@ public class AmountWithdrawalPage extends TestBase{
 			 Withdraw(Amount);
 			 driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			 int newBal = Integer.valueOf(GetBalance());
-			 int currentBal = Withdraw_CurrentBalance(Amount,oldBal) ;
+			 int currentBal = WithdrawCurrentBalance(Amount,oldBal) ;
 			 Assert.assertEquals(currentBal, newBal);
 			 String msg = message();
 			 Assert.assertEquals(msg , message );
@@ -202,6 +212,7 @@ public class AmountWithdrawalPage extends TestBase{
 		}
 	}
 	
+	// Method to perform invalid withdrawal.
 	public void Wait() throws InterruptedException {Thread.sleep(1000);}
 	public void InValidWithdraw(int Amount) throws InterruptedException
 	{
@@ -213,38 +224,44 @@ public class AmountWithdrawalPage extends TestBase{
 			 Withdraw(Amount);
 			 driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			 int newBal = Integer.valueOf(GetBalance());
-			 int currentBal = Withdraw_CurrentBalance(Amount,oldBal) ;
+			 int currentBal = WithdrawCurrentBalance(Amount,oldBal) ;
 			 Assert.assertEquals(newBal,currentBal);
 			 
 			 
 		}
 	}
 
+	// Method to navigate to withdrawal page.
 	public AmountWithdrawalPage navigateToWithdrawalPage1() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	// Method to click withdrawal tab.
 	public void clickWithdrawlTab() {
 		// TODO Auto-generated method stub
 		
 	}
 
+	// Method to enter withdrawal amount
 	public void enterWithdrawlAmount(String string) {
 		// TODO Auto-generated method stub
 		
 	}
 
+	// Method to click withdrawal button.
 	public void clickWithdrawlButton() {
 		// TODO Auto-generated method stub
 		
 	}
 
+	// Method to get error message.
 	public String getErrorMessage() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	// Method to get withdrawal success message.
 	public String getWithdarwlSuccessMSG() {
 		// TODO Auto-generated method stub
 		return null;

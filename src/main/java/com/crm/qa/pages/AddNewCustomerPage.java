@@ -46,16 +46,20 @@ public class AddNewCustomerPage extends TestBase{
 	}
 	
 	//Actions:
+	
+	// Method to get the title of the login page.
 	public String validateLoginPageTitle(){
 		return driver.getTitle();
 	}
 	
-	
+	// Method to retrieve text from an alert dialog.
 	public String getAlertMessageText() {
         Alert alert = driver.switchTo().alert();
         return alert.getText();
         
     }
+	
+	// Method to accept the alert dialog.
 	public void getAlert() {
         Alert alert = driver.switchTo().alert();
         alert.accept();
@@ -63,7 +67,7 @@ public class AddNewCustomerPage extends TestBase{
     }
 
 	
-	
+	// Method to add a new customer.
 	public AddNewCustomerPage AddCustomer(String fname,String Lname,String postcode)
 	{
 		AddCustomer_button.click();
@@ -77,6 +81,7 @@ public class AddNewCustomerPage extends TestBase{
 		return new AddNewCustomerPage();
 	}
 	
+	// Method to assert if actual text contains expected partial text.
 	public static void assertContains(String actualText, String expectedPartialText) {
         Assert.assertTrue(actualText.contains(expectedPartialText), "Actual text does not contain expected partial text");
     }

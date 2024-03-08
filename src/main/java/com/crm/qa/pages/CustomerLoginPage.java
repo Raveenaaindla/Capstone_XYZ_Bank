@@ -1,27 +1,21 @@
 package com.crm.qa.pages;
 
-
 import java.io.IOException;
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
-
 import com.crm.qa.TestBase.TestBase;
-
 
 public class CustomerLoginPage extends TestBase {
 	
-	//Page Factory - OR:
+	// Page Factory elements for Customer Login and Bank Manager Login buttons
 	@FindBy(xpath="//button[normalize-space()='Customer Login']")
-	WebElement Customer_Login;
+	WebElement CustomerLogin;
 	
 	@FindBy(xpath="//button[normalize-space()='Bank Manager Login']")
-	WebElement Manager_Login;
+	WebElement ManagerLogin;
 	
 	
 	
@@ -31,14 +25,14 @@ public class CustomerLoginPage extends TestBase {
 	}
 
 	
-	//Actions:
+	// Action to validate the title of the login page
 	public String validateLoginPageTitle(){
 		return driver.getTitle();
 	}
 	
 	public AmountWithdrawalPage CustomerLogin(String username)
 	{
-		Customer_Login.click();
+		CustomerLogin.click();
 		WebElement dropdownElement = driver.findElement(By.xpath(prop.getProperty("dropdown")));
 
         // Create a Select object
@@ -55,9 +49,10 @@ public class CustomerLoginPage extends TestBase {
 		
 	}
 	
+	// Action to perform Customer Login
 	public TransactionViewPage CustomerLogin1(String username)
 	{
-		Customer_Login.click();
+		CustomerLogin.click();
 		WebElement dropdownElement = driver.findElement(By.xpath(prop.getProperty("dropdown")));
 
         // Create a Select object
@@ -74,30 +69,20 @@ public class CustomerLoginPage extends TestBase {
 		
 	}
 	
-	
+	// Action to perform Bank Manager Login
 	public AddNewCustomerPage ManagerLogin()
 	{
-		Manager_Login.click();
+		ManagerLogin.click();
 		return new AddNewCustomerPage();
 	}
 	public OpenNewAccountPage ManagerLogin1()
 	{
-		Manager_Login.click();
+		ManagerLogin.click();
 		return new OpenNewAccountPage();
 	}
 	public CustomersDetailsPage ManagerLogin2()
 	{
-		Manager_Login.click();
+		ManagerLogin.click();
 		return new CustomersDetailsPage();
-	}
-
-
-	
-
-
-	
-	
-
-
-	
+	}	
 }

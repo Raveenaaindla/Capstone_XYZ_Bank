@@ -9,8 +9,7 @@
     
       <class name ="com.crm.qa.testcases.CustomerLoginTest"/>
       <class name ="com.crm.qa.testcases.CustomerTransactionPageTest"/>
-      <class name="com.crm.qa.testcases.DepositTest"/>
-      
+      <class name="com.crm.qa.testcases.DepositTest"/>      
       <class name="com.crm.qa.testcases.WithdrawalTest"/>
       <class name="com.crm.qa.testcases.BankManagerNavigationPageTest"/>
       <class name="com.crm.qa.testcases.AddCustomerPageTest"/>

@@ -21,12 +21,13 @@ public class BankManagerPage extends TestBase {
 	}
 
 	
-	//Actions:
+	// Action to validate the title of the login page
 	public String validateLoginPageTitle(){
 		return driver.getTitle();
 	
 	}
 		
+	// Action to perform Bank Manager login
 	public AddNewCustomerPage ManagerLogin()
 	{
 		Manager_Login.click();
@@ -34,6 +35,8 @@ public class BankManagerPage extends TestBase {
 	}
 
 
+
+    // Placeholder for Bank Manager login action with additional parameters
 	public AmountWithdrawalPage BankManagerLogin1(String string) {
 		// TODO Auto-generated method stub
 		return null;

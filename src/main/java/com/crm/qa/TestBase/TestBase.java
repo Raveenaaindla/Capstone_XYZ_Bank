@@ -59,16 +59,16 @@ public class TestBase {
 	}
 	
 	
-	public static void screenshots(String Filename) throws IOException {
-		
-		File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		
-		
-		
-		FileUtils.copyFile(file, new File("C:\\Users\\DELL\\Desktop\\XYZ_Bank\\src\\test\\java\\ScreenShots\\ScreenShots" + Filename + ".jpg" ));
-		
-	
-	}
+//	public static void screenshots(String Filename) throws IOException {
+//		
+//		File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+//		
+//		
+//		
+//		FileUtils.copyFile(file, new File("C:\\Users\\DELL\\Desktop\\XYZ_Bank\\src\\test\\java\\ScreenShots\\ScreenShots" + Filename + ".jpg" ));
+//		
+//	
+//	}
 	@AfterMethod
 	public void teardownBrowser() {
 		driver.quit();
